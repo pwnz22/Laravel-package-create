@@ -168,6 +168,8 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
 
+        Pwnz22\Taggz\TaggzServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
