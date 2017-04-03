@@ -1,0 +1,22 @@
+{
+    "name": "pwnz22/taggz",
+    "description": "An Eloquent tagging package for Laravel 5.x",
+    "type": "metapackage",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valijon",
+            "email": "parliament888@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pwnz22\\Taggz\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "illuminate/database": ">=5.0",
+        "illuminate/support": ">=5.0"
+    }
+}
