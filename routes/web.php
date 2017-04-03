@@ -1,5 +1,6 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    $tags = \Pwnz22\Taggz\Models\Tag::get();
+    dd($tags);
 });
