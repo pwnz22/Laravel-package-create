@@ -1,6 +1,10 @@
 <?php
 
+use App\Lesson;
+use App\Topic;
+
 Route::get('/', function () {
-    $tags = \Pwnz22\Taggz\Models\Tag::get();
-    dd($tags);
+    $lesson = Lesson::find(1);
+
+    dd($lesson->tags);
 });
