@@ -49,6 +49,20 @@ trait TaggableTrait
         }
     }
 
+    private function removeTags(Collection $tags)
+    {
+        $this->tags()->detach($tags);
+
+        foreach ($tags->where('count', '>', 0) as $tag) {
+            $tag->decrement('count');
+        }
+    }
+
+    private function removeAllTags()
+    {
+        $this->removeTags($this->tags);
+    }
+
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
@@ -57,5 +71,15 @@ trait TaggableTrait
     public function tag($tags)
     {
         $this->addTags($this->getWorkableTags($tags));
+    }
+
+    public function untag($tags = null)
+    {
+        if ($tags === null) {
+            $this->removeAllTags();
+            return;
+        }
+
+        $this->removeTags($this->getWorkableTags($tags));
     }
 }
