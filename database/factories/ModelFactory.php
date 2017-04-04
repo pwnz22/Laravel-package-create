@@ -22,3 +22,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(Pwnz22\Taggz\Models\Tag::class, function (Faker\Generator $faker) {
+    $name = $faker->unique()->colorName;
+
+    return [
+        'name' => $name,
+        'slug' => str_slug($name)
+    ];
+});
