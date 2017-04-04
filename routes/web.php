@@ -4,7 +4,6 @@ use App\Lesson;
 use App\Topic;
 
 Route::get('/', function () {
-    $lessons = Lesson::withAnyTag(['orangered', 'navy']);
-
-    dd($lessons->get());
+    $tags = \Pwnz22\Taggz\Models\Tag::usedGte(1);
+    dd($tags->get());
 });
