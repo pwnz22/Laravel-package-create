@@ -5,9 +5,12 @@ namespace Pwnz22\Taggz;
 use Pwnz22\Taggz\Models\Tag;
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Pwnz22\Taggz\Scopes\TaggableScopesTrait;
 
 trait TaggableTrait
 {
+    use TaggableScopesTrait;
+
     private function getWorkableTags($tags)
     {
         if (is_array($tags)) {

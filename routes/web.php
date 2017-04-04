@@ -4,7 +4,7 @@ use App\Lesson;
 use App\Topic;
 
 Route::get('/', function () {
-    $lesson = Lesson::find(1);
+    $lessons = Lesson::withAnyTag(['orangered', 'navy']);
 
-    $lesson->retag(['navy', 'green']);
+    dd($lessons->get());
 });
