@@ -6,5 +6,5 @@ use App\Topic;
 Route::get('/', function () {
     $lesson = Lesson::find(1);
 
-    $lesson->untag();
+    $lesson->retag(['navy', 'green']);
 });

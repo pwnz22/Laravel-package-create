@@ -73,6 +73,13 @@ trait TaggableTrait
         $this->addTags($this->getWorkableTags($tags));
     }
 
+    public function retag($tags)
+    {
+        $this->removeAllTags();
+
+        $this->tag($tags);
+    }
+
     public function untag($tags = null)
     {
         if ($tags === null) {
