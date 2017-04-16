@@ -1,3 +1,9 @@
+<?php
+    $traverse = function ($comments) use (&$traverse) {
+
+        foreach ($comments as $comment):
+?>
+
 <div class="comment">
     <h4>
         {{ $comment->user->name }}
@@ -9,7 +15,14 @@
 
     <p>{{ $comment->body }}</p>
 
-    @foreach($comment->replies as $reply)
-        @include('comments.partial._comment', ['comment' => $reply])
-    @endforeach
+    @if ($comment->replies)
+        <?php $traverse($comment->replies) ?>
+    @endif
 </div>
+
+<?php
+        endforeach;
+    };
+
+    $traverse($comments);
+?>
