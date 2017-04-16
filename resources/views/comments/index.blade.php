@@ -24,50 +24,10 @@
 
 </head>
 <body>
+    <h1>{{ $article->title }}</h1>
 
-<h1>{{ $article->title }}</h1>
-
-@foreach($comments as $comment)
-    <div class="comment">
-        <h4>
-            {{ $comment->user->name }}
-
-            @if ($comment->parent_id)
-                <small>In reply to {{ $comment->parent->user->name }}</small>
-            @endif
-        </h4>
-
-        <p>{{ $comment->body }}</p>
-
-        @foreach($comment->replies as $reply)
-            <div class="comment">
-                <h4>
-                    {{ $reply->user->name }}
-
-                    @if ($reply->parent_id)
-                        <small>In reply to {{ $reply->parent->user->name }}</small>
-                    @endif
-                </h4>
-
-                <p>{{ $reply->body }}</p>
-
-                @foreach($reply->replies as $reply2)
-                    <div class="comment">
-                        <h4>
-                            {{ $reply2->user->name }}
-
-                            @if ($reply2->parent_id)
-                                <small>In reply to {{ $reply2->parent->user->name }}</small>
-                            @endif
-                        </h4>
-
-                        <p>{{ $reply2->body }}</p>
-                    </div>
-                @endforeach
-            </div>
-        @endforeach
-    </div>
-@endforeach
-
+    @foreach($comments as $comment)
+        @include('comments.partial._comment', ['comments' => $comments])
+    @endforeach
 </body>
 </html>
