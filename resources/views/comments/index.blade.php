@@ -28,5 +28,6 @@
 
     @include('comments.partial._comment', ['comments' => $comments])
 
+    {{ $comments->links() }}
 </body>
 </html>
